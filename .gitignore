@@ -2,3 +2,5 @@
 node_modules
 example/dist/
 lib
+.idea
+*.iml
