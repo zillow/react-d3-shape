@@ -96,7 +96,9 @@ export default class ChartSvg extends Component {
 
     var children = React.Children.map(this.props.children, (el) => {
       if(el) {
-        return React.cloneElement(el, {
+
+        // Set child properties with defaults unless they're set by the child
+        const childProps = Object.assign({
           height: height,
           width: width,
           margins: margins,
@@ -121,7 +123,9 @@ export default class ChartSvg extends Component {
           data: data,
           x: x,
           y: y
-        })
+        }, el.props);
+
+        return React.cloneElement(el, childProps)
       }else {
         return null;
       }
