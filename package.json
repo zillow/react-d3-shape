@@ -6,7 +6,9 @@
   "directories": {
     "example": "example"
   },
+  "files": ["lib"],
   "scripts": {
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./lib && BABEL_ENV=production ./node_modules/.bin/babel ./src --out-dir ./lib",
     "prod": "BABEL_ENV=production NODE_ENV=0 webpack --config webpack.prod.config.js && BABEL_ENV=production NODE_ENV=1 webpack --config webpack.prod.config.js"
