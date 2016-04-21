@@ -1,5 +1,5 @@
 {
-  "name": "react-d3-shape",
+  "name": "@zillow/react-d3-shape",
   "version": "0.2.13",
   "description": "react shape component",
   "main": "./lib/index.js",
