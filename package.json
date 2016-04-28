@@ -1,6 +1,6 @@
 {
   "name": "@zillow/react-d3-shape",
-  "version": "0.2.13",
+  "version": "0.2.15",
   "description": "react shape component",
   "main": "./lib/index.js",
   "directories": {
