@@ -1,4 +1,4 @@
-# react-d3-shape
+# @zillow/react-d3-shape
 
 [![Dependency Status](https://gemnasium.com/react-d3/react-d3-shape.svg)](https://gemnasium.com/react-d3/react-d3-shape)
 
@@ -16,6 +16,15 @@ react-d3 basic shapes, shapes that we support:
 - Pie
 - Scatter
 
+## Fork Alert!
+
+This is a fork of [react-d3/react-d3-shape](https://github.com/react-d3/react-d3-shape), containing additional options and features including:
+
+- Area and line point alignment optionsp
+
+**Contributors**, please do not adjust code style so the original project and this fork can more easily share updates from each other.
+
+This fork is based on v0.2.15 of the original project. The first version of this fork was v0.3.0.
 
 ## Install
 
