@@ -20,7 +20,7 @@ react-d3 basic shapes, shapes that we support:
 
 This is a fork of [react-d3/react-d3-shape](https://github.com/react-d3/react-d3-shape), containing additional options and features including:
 
-- Area and line point alignment optionsp
+- Area and line point alignment options
 
 **Contributors**, please do not adjust code style so the original project and this fork can more easily share updates from each other.
 
