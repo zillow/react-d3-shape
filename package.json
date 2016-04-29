@@ -1,12 +1,14 @@
 {
   "name": "@zillow/react-d3-shape",
-  "version": "0.2.15",
+  "version": "0.3.0",
   "description": "react shape component",
   "main": "./lib/index.js",
   "directories": {
     "example": "example"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
