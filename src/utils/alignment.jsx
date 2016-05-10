@@ -20,22 +20,22 @@ function _getTranslateXAmount (pointAlign, bandwidth) {
  * Create an X accessor function to help create a D3 line or area such that the
  * leftmost shape is left-aligned, and the rightmost is right-aligned.
  */
-export function getXPointAlignAccessor (data, pointAlign, xScaleSet) {
+export function getXPointAlignAccessor (data, xScale, pointAlign='left') {
   return (d, i) => {
 
     // First element, always left-align
     if (i === 0) {
-      return xScaleSet(d.x) +
-        _getTranslateXAmount('left', xScaleSet.bandwidth());
+      return xScale(d.x) +
+        _getTranslateXAmount('left', xScale.bandwidth());
 
     // Last element, always right-align
     } else if (i === data.length - 1) {
-      return xScaleSet(d.x) +
-        _getTranslateXAmount('right', xScaleSet.bandwidth());
+      return xScale(d.x) +
+        _getTranslateXAmount('right', xScale.bandwidth());
     }
 
     // Other elements, align as specified
-    return xScaleSet(d.x) +
-      _getTranslateXAmount(pointAlign, xScaleSet.bandwidth())
+    return xScale(d.x) +
+      _getTranslateXAmount(pointAlign, xScale.bandwidth())
   }
 }

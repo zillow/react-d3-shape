@@ -61,7 +61,7 @@ export default class Line extends Component {
     } = this.props;
 
     var line =  D3Shape.line()
-      .x(getXPointAlignAccessor(data, pointAlign, xScaleSet))
+      .x(getXPointAlignAccessor(data, xScaleSet, pointAlign))
       .y((d) => { return yScaleSet(d.y) });
 
     return line.call(this, data);

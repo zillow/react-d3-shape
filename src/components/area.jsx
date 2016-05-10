@@ -63,7 +63,7 @@ export default class Area extends Component {
     } = this.props;
 
     var area = D3Shape.area()
-      .x(getXPointAlignAccessor(data, pointAlign, xScaleSet))
+      .x(getXPointAlignAccessor(data, xScaleSet, pointAlign))
       .y0((d) => {
         var domain = yScaleSet.domain();
 
