@@ -9,7 +9,7 @@ import {
 import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
-import {getTranslateXAmount} from '../utils/alignment';
+import {getXPointAlignAccessor} from '../utils/alignment';
 
 export default class Area extends Component {
   constructor (props) {
@@ -58,11 +58,12 @@ export default class Area extends Component {
       height,
       margins,
       xScaleSet,
-      yScaleSet
+      yScaleSet,
+      pointAlign
     } = this.props;
 
     var area = D3Shape.area()
-      .x((d) => { return xScaleSet(d.x) })
+      .x(getXPointAlignAccessor(data, pointAlign, xScaleSet))
       .y0((d) => {
         var domain = yScaleSet.domain();
 
@@ -82,16 +83,8 @@ export default class Area extends Component {
   render() {
     var area = this._mkArea();
 
-    const translateXAmount = getTranslateXAmount(
-      this.props.pointAlign,
-      this.props.xScaleSet.bandwidth()
-    );
-    const style = {
-      transform: `translateX(${translateXAmount}px)`
-    };
-
     return (
-      <g style={style}>
+      <g>
         {area}
       </g>
     )

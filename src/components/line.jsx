@@ -9,7 +9,7 @@ import {
 import D3Shape from 'd3-shape'
 import CommonProps from '../commonProps';
 import {series} from '../utils/series';
-import {getTranslateXAmount} from '../utils/alignment';
+import {getXPointAlignAccessor} from '../utils/alignment';
 
 export default class Line extends Component {
   constructor (props) {
@@ -56,29 +56,22 @@ export default class Line extends Component {
   _setAxes (data) {
     const {
       xScaleSet,
-      yScaleSet
+      yScaleSet,
+      pointAlign
     } = this.props;
 
     var line =  D3Shape.line()
-      .x((d) => { return xScaleSet(d.x) })
-      .y((d) => { return yScaleSet(d.y) })
+      .x(getXPointAlignAccessor(data, pointAlign, xScaleSet))
+      .y((d) => { return yScaleSet(d.y) });
 
     return line.call(this, data);
   }
 
   render() {
-    var line = this._mkLine();
-
-    const translateXAmount = getTranslateXAmount(
-      this.props.pointAlign,
-      this.props.xScaleSet.bandwidth()
-    );
-    const style = {
-      transform: `translateX(${translateXAmount}px)`
-    };
+    const line = this._mkLine();
 
     return (
-      <g style={style}>
+      <g>
         {line}
       </g>
     );
