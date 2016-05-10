@@ -7,10 +7,10 @@
  * @param bandwidth - The width of a single band of the X scale
  * @returns {number} - How many horizontal pixels to translate
  */
-export function getTranslateXAmount (pointAlign, bandwidth) {
-  if ( pointAlign === 'center' ) {
+function _getTranslateXAmount (pointAlign, bandwidth) {
+  if (pointAlign === 'center') {
     return bandwidth / 2;
-  } else if ( pointAlign === 'right') {
+  } else if (pointAlign === 'right') {
     return bandwidth;
   }
   return 0;
@@ -25,20 +25,17 @@ export function getXPointAlignAccessor (data, pointAlign, xScaleSet) {
 
     // First element, always left-align
     if (i === 0) {
-      console.log('1st, left');
       return xScaleSet(d.x) +
-        getTranslateXAmount('left', xScaleSet.bandwidth());
+        _getTranslateXAmount('left', xScaleSet.bandwidth());
 
     // Last element, always right-align
     } else if (i === data.length - 1) {
-      console.log('last, right');
       return xScaleSet(d.x) +
-        getTranslateXAmount('right', xScaleSet.bandwidth());
+        _getTranslateXAmount('right', xScaleSet.bandwidth());
     }
 
     // Other elements, align as specified
-    console.log('other, normal');
     return xScaleSet(d.x) +
-      getTranslateXAmount(pointAlign, xScaleSet.bandwidth())
+      _getTranslateXAmount(pointAlign, xScaleSet.bandwidth())
   }
 }
