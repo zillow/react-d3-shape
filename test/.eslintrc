@@ -1,0 +1,18 @@
+{
+    "env": {
+        "mocha": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "globals": {
+        "chai": true,
+        "expect": true
+    },
+    "rules": {
+        "no-unused-vars": 0,
+        "no-unused-expressions": 0
+    },
+    "root": true
+}
