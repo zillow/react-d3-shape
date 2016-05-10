@@ -1,16 +1,16 @@
 import _ from 'lodash';
 import sinon from 'sinon';
-import {getXPointAlignAccessor} from '../../src/utils/alignment';
+import { getXPointAlignAccessor } from '../../src/utils/alignment';
 
 describe('getXPointAlignAccessor', () => {
   let data = null;
   let xScale = null;
-  
+
   beforeEach(() => {
     data = [
-      {x: 'xval-shifted-by-'},
-      {x: 1},
-      {x: 'xval-'}
+      { x: 'xval-shifted-by-' },
+      { x: 1 },
+      { x: 'xval-' },
     ];
     xScale = xVal => xVal;
   });
