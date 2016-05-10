@@ -2,8 +2,7 @@
 
 /**
  * Get the horizontal translation amount based on point alignment.
- * @param [pointAlign='left'] - How the points should be aligned, left, center,
- *   or right
+ * @param pointAlign - How the points should be aligned, left, center, or right
  * @param bandwidth - The width of a single band of the X scale
  * @returns {number} - How many horizontal pixels to translate
  */
@@ -18,7 +17,12 @@ function _getTranslateXAmount (pointAlign, bandwidth) {
 
 /**
  * Create an X accessor function to help create a D3 line or area such that the
- * leftmost shape is left-aligned, and the rightmost is right-aligned.
+ * leftmost point is left-aligned, the rightmost is right-aligned, and all
+ * others are as specified.
+ * @param data - Chart data
+ * @param xScale - The D3 scale for x values
+ * @param [pointAlign='left'] - How the points should be aligned, left, center,
+ *   or right
  */
 export function getXPointAlignAccessor (data, xScale, pointAlign='left') {
   return (d, i) => {
